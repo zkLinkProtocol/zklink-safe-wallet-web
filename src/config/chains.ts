@@ -33,6 +33,8 @@ const ChainLogos = {
   [chains.arb1]: '/images/networks/arb.svg',
   [chains.avax]: '/images/networks/avax.svg',
   [chains.sep]: '/images/networks/sep.png',
+  [chains['zklink-nova-goerli']]: '/images/networks/zklink-testnet.png',
+  [chains['zklink-nova']]: '/images/networks/zklink-nova.png',
 }
 
 export const getChainLogo = (chainId: string) => {
