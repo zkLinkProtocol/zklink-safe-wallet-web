@@ -51,7 +51,7 @@ const Footer = (): ReactElement | null => {
               <Typography variant="caption">&copy;2022–{new Date().getFullYear()} zkLink Nova</Typography>
             </li>
             <li>
-              <ExternalLink href='https://docs.zklink.io/'>Documentation</ExternalLink>
+              <ExternalLink href="https://docs.zklink.io/">Documentation</ExternalLink>
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>

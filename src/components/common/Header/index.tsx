@@ -15,7 +15,7 @@ import useChainId from '@/hooks/useChainId'
 import SafeLogoPNG from '@/public/images/logo.png'
 import SafeLogoDarkPNG from '@/public/images/logo-dark.png'
 import Link from 'next/link'
-import Image from 'next/image';
+import Image from 'next/image'
 import useSafeAddress from '@/hooks/useSafeAddress'
 import BatchIndicator from '@/components/batch/BatchIndicator'
 import WalletConnect from '@/features/walletconnect/components'
@@ -67,11 +67,7 @@ const Header = ({ onMenuToggle, onBatchToggle }: HeaderProps): ReactElement => {
       <div className={classnames(css.element, css.hideMobile, css.logo)}>
         <Link href={logoHref} passHref>
           {/* <SafeLogo alt="Safe logo" /> */}
-          <Image 
-              src={isDarkMode ? SafeLogoDarkPNG : SafeLogoPNG}
-              alt="Safe logo"
-              height={40}
-            />
+          <Image src={isDarkMode ? SafeLogoDarkPNG : SafeLogoPNG} alt="Safe logo" height={40} />
         </Link>
       </div>
 
