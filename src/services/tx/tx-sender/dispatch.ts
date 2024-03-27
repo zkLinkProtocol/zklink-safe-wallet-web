@@ -113,7 +113,8 @@ export const dispatchOnChainSigning = async (
   const safeTxHash = await sdkUnchecked.getTransactionHash(safeTx)
   const eventParams = { txId }
 
-  const options = chainId === chains.zksync ? { gasLimit: ZK_SYNC_ON_CHAIN_SIGNATURE_GAS_LIMIT } : undefined
+  const options = [chains.zksync, chains['zklink-nova-goerli'], chains['zklink-nova']].includes(chainId)
+    ? { gasLimit: ZK_SYNC_ON_CHAIN_SIGNATURE_GAS_LIMIT } : undefined
 
   try {
     // With the unchecked signer, the contract call resolves once the tx
