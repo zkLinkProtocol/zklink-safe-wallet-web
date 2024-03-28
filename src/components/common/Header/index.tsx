@@ -11,11 +11,9 @@ import SafeTokenWidget, { getSafeTokenAddress } from '@/components/common/SafeTo
 import NotificationCenter from '@/components/notification-center/NotificationCenter'
 import { AppRoutes } from '@/config/routes'
 import useChainId from '@/hooks/useChainId'
-//import SafeLogo from '@/public/images/logo.svg'
-import SafeLogoPNG from '@/public/images/logo.png'
-import SafeLogoDarkPNG from '@/public/images/logo-dark.png'
+import SafeLogo from '@/public/images/logo.svg'
+import SafeLogoDark from '@/public/images/logo-dark.svg'
 import Link from 'next/link'
-import Image from 'next/image'
 import useSafeAddress from '@/hooks/useSafeAddress'
 import BatchIndicator from '@/components/batch/BatchIndicator'
 import WalletConnect from '@/features/walletconnect/components'
@@ -66,8 +64,7 @@ const Header = ({ onMenuToggle, onBatchToggle }: HeaderProps): ReactElement => {
 
       <div className={classnames(css.element, css.hideMobile, css.logo)}>
         <Link href={logoHref} passHref>
-          {/* <SafeLogo alt="Safe logo" /> */}
-          <Image src={isDarkMode ? SafeLogoDarkPNG : SafeLogoPNG} alt="Safe logo" height={40} />
+          {isDarkMode ? <SafeLogoDark alt="Safe logo" /> : <SafeLogo alt="Safe logo" />}
         </Link>
       </div>
 

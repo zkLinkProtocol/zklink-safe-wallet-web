@@ -2,7 +2,8 @@ import { AppRoutes } from '@/config/routes'
 import { useHasFeature } from '@/hooks/useChains'
 import { FEATURES } from '@/utils/chains'
 import { Paper, SvgIcon, Typography, Divider, Box, Skeleton, Button, Link } from '@mui/material'
-import SafeLogo from '@/public/images/logo-text.svg'
+import SafeLogo from '@/public/images/logo.svg'
+import SafeLogoDark from '@/public/images/logo-dark.svg'
 import dynamic from 'next/dynamic'
 import css from './styles.module.css'
 import { useRouter } from 'next/router'
@@ -13,6 +14,7 @@ import { useHasSafes } from '../MyAccounts/useAllSafes'
 import Track from '@/components/common/Track'
 import { useCallback, useEffect, useState } from 'react'
 import WalletLogin from './WalletLogin'
+import { useDarkMode } from '@/hooks/useDarkMode'
 
 const SocialSigner = dynamic(() => import('@/components/common/SocialSigner'), {
   loading: () => <Skeleton variant="rounded" height={42} width="100%" />,
@@ -24,6 +26,7 @@ const WelcomeLogin = () => {
   const isSocialLoginEnabled = useHasFeature(FEATURES.SOCIAL_LOGIN)
   const { isLoaded, hasSafes } = useHasSafes()
   const [shouldRedirect, setShouldRedirect] = useState(false)
+  const isDarkMode = useDarkMode()
 
   const onLogin = useCallback(() => {
     setShouldRedirect(true)
@@ -45,7 +48,11 @@ const WelcomeLogin = () => {
   return (
     <Paper className={css.loginCard} data-testid="welcome-login">
       <Box className={css.loginContent}>
-        <SvgIcon component={SafeLogo} inheritViewBox sx={{ height: '24px', width: '80px', ml: '-8px' }} />
+        <SvgIcon
+          component={isDarkMode ? SafeLogoDark : SafeLogo}
+          inheritViewBox
+          sx={{ height: '48px', width: '160px', ml: '-8px' }}
+        />
 
         <Typography variant="h6" mt={6} fontWeight={700}>
           Get started
